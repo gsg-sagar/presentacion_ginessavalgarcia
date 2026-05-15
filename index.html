@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ginés Saval García | Perfil Profesional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #111111;
+            --accent: #b8964f;
+            --text-muted: #666666;
+            --border-soft: #eeeeee;
+            --pop-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background-color: #ffffff;
+            color: var(--primary);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .lang-nav {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            z-index: 1000;
+        }
+
+        .lang-nav span { cursor: pointer; opacity: 0.3; transition: 0.4s; }
+        .lang-nav span.active { opacity: 1; color: var(--accent); font-weight: 600; }
+
+        header {
+            padding: 100px 40px 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            animation: reveal 0.8s ease-out;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ffffff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+            transition: transform 0.4s ease;
+        }
+
+        header:hover .profile-img {
+            transform: scale(1.03);
+        }
+
+        h1 {
+            font-weight: 300;
+            font-size: 2.2rem;
+            letter-spacing: 7px;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        /* Ajuste de separación entre nombre e info */
+        .meta-info {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-top: 35px; /* Aumentado para dar más aire */
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .meta-info span { display: flex; align-items: center; gap: 8px; }
+        .meta-info i { color: var(--accent); }
+
+        .sub-header {
+            font-family: 'Libre+Baskerville', serif;
+            font-style: italic;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin: 20px 0;
+        }
+
+        /* LinkedIn perfectamente centrado */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        main {
+            max-width: 940px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+            flex: 1;
+        }
+
+        .section-label {
+            font-size: 0.6rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin: 60px 0 30px;
+            display: block;
+            text-align: center;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .item-card {
+            padding: 40px;
+            border: 1px solid var(--border-soft);
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .item-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: var(--pop-shadow);
+        }
+
+        .logo-box { height: 40px; margin-bottom: 25px; }
+        .logo-box img { max-height: 100%; }
+
+        .item-card h3 { font-size: 0.85rem; margin-bottom: 12px; letter-spacing: 1.5px; text-transform: uppercase; }
+        .item-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; }
+
+        .flag-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        }
+        .flag-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .skill {
+            background: white;
+            border: 1px solid var(--border-soft);
+            padding: 22px;
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-radius: 12px;
+            transition: 0.3s ease;
+        }
+
+        .skill:hover {
+            transform: translateX(8px);
+            border-color: var(--accent);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .skill i { font-size: 1.2rem; color: var(--accent); width: 25px; text-align: center; }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-card i { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; transition: 0.3s; }
+        .contact-card:hover i { color: var(--accent); }
+
+        footer {
+            padding: 60px 40px;
+            text-align: center;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            border-top: 1px solid var(--border-soft);
+        }
+
+        @media (max-width: 768px) {
+            .card-grid, .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="lang-nav">
+        <span id="btn-es" class="active" onclick="setLang('es')">ES</span> / 
+        <span id="btn-en" onclick="setLang('en')">EN</span>
+    </nav>
+
+    <header>
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400" alt="Ginés Saval García" class="profile-img">
+        <h1>Ginés Saval García</h1>
+        <div class="meta-info">
+            <span id="loc"><i class="fa-solid fa-location-dot"></i> Alicante, España</span>
+            <span id="car"><i class="fa-solid fa-car"></i> Vehículo Propio</span>
+        </div>
+        <div id="sub-header" class="sub-header">Administración, Finanzas & Derecho</div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ginessavalgarcia" target="_blank" style="color:var(--primary); font-size: 1.8rem;"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <span class="section-label" id="label-edu">Trayectoria Académica</span>
+        <div class="card-grid">
+            <div class="item-card">
+                <div class="logo-box"><img src="Logo+UNED+30x30_Color.jfif" alt="UNED"></div>
+                <h3 id="edu1-t">Grado en Derecho</h3>
+                <p id="edu1-d">UNED | 2024 - Presente<br>Segundo año en curso</p>
+            </div>
+            <div class="item-card">
+                <div class="logo-box"><img src="images.png" alt="FEMPA"></div>
+                <h3 id="edu2-t">Administración y Finanzas</h3>
+                <p id="edu2-d">Escuela de Formación FEMPA<br>Gestión Jurídica y Documental</p>
+            </div>
+        </div>
+
+        <span class="section-label" id="label-skills">Habilidades Técnicas</span>
+        <div class="skills-grid" id="skills-list"></div>
+
+        <span class="section-label" id="label-lang">Idiomas</span>
+        <div class="card-grid">
+            <div class="item-card">
+                <div class="flag-box"><img src="https://flagcdn.com/w80/es.png" alt="ES"></div>
+                <h3 id="l-nat-t">Castellano / Valenciano</h3>
+                <p id="l-nat-v">Nativo</p>
+            </div>
+            <div class="item-card">
+                <div class="flag-box"><img src="https://flagcdn.com/w80/gb.png" alt="EN"></div>
+                <h3 id="l-eng-t">English</h3>
+                <p id="l-eng-v">Intermediate (B1)</p>
+            </div>
+        </div>
+
+        <span class="section-label" id="label-contact">Contacto Directo</span>
+        <div class="contact-grid">
+            <a href="mailto:ginessavalgarcia@gmail.com" class="item-card contact-card">
+                <i class="fa-solid fa-envelope"></i>
+                <h3>Gmail</h3>
+                <p>ginessavalgarcia@gmail.com</p>
+            </a>
+            <a href="tel:+34722688586" class="item-card contact-card">
+                <i class="fa-solid fa-phone"></i>
+                <h3 id="c-phone">Teléfono</h3>
+                <p>+34 722 688 586</p>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2026 GINÉS SAVAL GARCÍA &bull; TODOS LOS DERECHOS RESERVADOS<br>
+        DESARROLLADO POR GINÉS SAVAL GARCÍA
+    </footer>
+
+    <script>
+        const data = {
+            es: {
+                loc: "<i class='fa-solid fa-location-dot'></i> Alicante, España",
+                car: "<i class='fa-solid fa-car'></i> Vehículo Propio",
+                sub: "Administración, Finanzas & Derecho",
+                l_edu: "Trayectoria Académica",
+                e1_t: "Grado en Derecho", e1_d: "UNED | 2024 - Presente<br>Segundo año en curso",
+                e2_t: "Administración y Finanzas", e2_d: "Escuela de Formación FEMPA<br>Gestión Jurídica y Documental",
+                l_ski: "Habilidades Técnicas",
+                l_lang: "Idiomas",
+                l_nat_t: "Castellano / Valenciano", l_nat_v: "Nativo",
+                l_eng_t: "English", l_eng_v: "Intermedio (B1)",
+                l_contact: "Contacto Directo",
+                c_phone: "Teléfono",
+                skills: [
+                    {n: "Python (Nociones)", i: "fa-brands fa-python"},
+                    {n: "Excel & Power Query", i: "fa-solid fa-table"},
+                    {n: "Power BI", i: "fa-solid fa-chart-line"},
+                    {n: "Gestión Contable", i: "fa-solid fa-vault"},
+                    {n: "Análisis Jurídico", i: "fa-solid fa-gavel"},
+                    {n: "Edición Audiovisual", i: "fa-solid fa-clapperboard"}
+                ]
+            },
+            en: {
+                loc: "<i class='fa-solid fa-location-dot'></i> Alicante, Spain",
+                car: "<i class='fa-solid fa-car'></i> Own Vehicle",
+                sub: "Administration, Finance & Law",
+                l_edu: "Academic Background",
+                e1_t: "Bachelor of Laws (LL.B.)", e1_d: "UNED University | 2024 - Present<br>Second-year student",
+                e2_t: "Business Admin & Finance", e2_d: "FEMPA Professional School<br>Legal & Documentary specialization",
+                l_ski: "Technical Expertise",
+                l_lang: "Languages",
+                l_nat_t: "Spanish / Valencian", l_nat_v: "Native",
+                l_eng_t: "English", l_eng_v: "Intermediate (B1)",
+                l_contact: "Direct Contact",
+                c_phone: "Phone",
+                skills: [
+                    {n: "Python (Basics)", i: "fa-brands fa-python"},
+                    {n: "Excel & Power Query", i: "fa-solid fa-table"},
+                    {n: "Power BI", i: "fa-solid fa-chart-line"},
+                    {n: "Accounting Management", i: "fa-solid fa-vault"},
+                    {n: "Legal Analysis", i: "fa-solid fa-gavel"},
+                    {n: "Media Editing", i: "fa-solid fa-clapperboard"}
+                ]
+            }
+        };
+
+        function setLang(lang) {
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            const d = data[lang];
+            document.getElementById('loc').innerHTML = d.loc;
+            document.getElementById('car').innerHTML = d.car;
+            document.getElementById('sub-header').innerText = d.sub;
+            document.getElementById('label-edu').innerText = d.l_edu;
+            document.getElementById('edu1-t').innerText = d.e1_t;
+            document.getElementById('edu1-d').innerHTML = d.e1_d;
+            document.getElementById('edu2-t').innerText = d.e2_t;
+            document.getElementById('edu2-d').innerHTML = d.e2_d;
+            document.getElementById('label-skills').innerText = d.l_ski;
+            document.getElementById('label-lang').innerText = d.l_lang;
+            document.getElementById('l-nat-t').innerText = d.l_nat_t;
+            document.getElementById('l-nat-v').innerText = d.l_nat_v;
+            document.getElementById('l-eng-t').innerText = d.l_eng_t;
+            document.getElementById('l-eng-v').innerText = d.l_eng_v;
+            document.getElementById('label-contact').innerText = d.l_contact;
+            document.getElementById('c-phone').innerText = d.c_phone;
+
+            const grid = document.getElementById('skills-list');
+            grid.innerHTML = "";
+            d.skills.forEach(s => { grid.innerHTML += `<div class="skill"><i class="${s.i}"></i> ${s.n}</div>`; });
+        }
+
+        setLang('es');
+    </script>
+</body>
+</html>
